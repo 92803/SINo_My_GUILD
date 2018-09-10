@@ -1,0 +1,2 @@
+module MyGuildsHelper
+end
