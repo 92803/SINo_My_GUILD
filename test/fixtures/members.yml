@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  m_name: MyString
+  role: 1
+  job: MyString
+  sub_job: MyString
+  my_guild_id: 1
+
+two:
+  m_name: MyString
+  role: 1
+  job: MyString
+  sub_job: MyString
+  my_guild_id: 1

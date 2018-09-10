@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: SINo_My_GUILD_development
+
+test:
+  <<: *default
+  database: SINo_My_GUILD_test
+
+production:
+  <<: *default
+  database: SINo_My_GUILD_production
+  username: SINo_My_GUILD
+  password: <%= ENV['SINO_MY_GUILD_DATABASE_PASSWORD'] %>

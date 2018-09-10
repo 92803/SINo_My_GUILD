@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ギルドメンバーリスト</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Job</th>
+      <th>Nightmare</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @members.each.with_index(1) do |member,idx| %>
+      <tr>
+        <td><%= idx %></td>
+        <td><%= member.m_name %></td>
+        <% if member.role == 0 %>
+          <td><%= "前衛" %></td>
+        <% else %>
+          <td><%= "後衛" %></td>
+        <% end %>
+        <td><%= member.job %></td>
+        <td>メインナイトメア</td>
+        <td><%= link_to '詳細', member %></td>
+        <td><%= link_to '編集', edit_member_path(member) %></td>
+        <td><%= link_to '削除', member, method: :delete, data: { confirm: '消去してもいいですか? 必要な場合はパスワード変更を忘れずに!' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<!-- 15人までの制限でnew出来なくする -->
+<% if @members.count < 15 %>
+  <%= link_to 'メンバー情報を追加する', new_member_path %>
+<% else %>
+  <%= 'フルメンバー!' %>
+<% end %>

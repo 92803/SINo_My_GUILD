@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>メンバー詳細</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @member.m_name %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <% if @member.role == 0 %>
+    <td><%= "前衛" %></td>
+  <% else %>
+    <td><%= "後衛" %></td>
+  <% end %>
+</p>
+
+<p>
+  <strong>Main Job:</strong>
+  <%= @member.job %>
+</p>
+
+<p>
+  <strong>Sub job:</strong>
+  <%= @member.sub_job %>
+</p>
+
+<%= link_to '編集', edit_member_path(@member) %> |
+<%= link_to 'メンバーリストへ戻る', members_path %>

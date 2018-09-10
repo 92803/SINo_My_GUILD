@@ -1,0 +1,38 @@
+<%= form_with(model: member, local: true) do |form| %>
+  <% if member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= member.errors.count %>件のエラー</h2>
+
+      <ul>
+      <% member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :m_name,"Name" %>
+    <%= form.text_field :m_name, id: :member_m_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :role %>
+    <%= form.radio_button :role,0 %> 前衛
+    <%= form.radio_button :role,1 %> 後衛
+  </div>
+
+  <div class="field">
+    <%= form.label :job,"Main job" %>
+    <%= form.text_field :job, id: :member_job %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sub_job %>
+    <%= form.text_field :sub_job, id: :member_sub_job %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
