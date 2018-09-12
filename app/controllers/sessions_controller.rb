@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  def new
+  def index
   end
 
   def create
-    my_guild = My_guild.find_by(g_name: params[:session][:g_name])
-    if my_guild && my_guild.authenticate(params[:session][:password])
-      session[:my_guild_id] = my_guild.id
-      redirect_to my_guild_path(my_guild.id)
+    guild = Guild.find_by(gname: params[:session][:gname])
+    if guild && guild.authenticate(params[:session][:password])
+      session[:guild_id] = guild.id
+      redirect_to guild_path(guild.id)
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render 'new'
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:my_guild_id)
+    session.delete(:guild_id)
     flash[:notice] = 'ログアウトしました'
     redirect_to new_session_path
   end

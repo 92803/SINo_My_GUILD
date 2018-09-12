@@ -10,25 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910045050) do
+ActiveRecord::Schema.define(version: 20180912041342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guilds", force: :cascade do |t|
+    t.string "gname"
+    t.string "image"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gname"], name: "index_guilds_on_gname", unique: true
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "m_name"
     t.integer "role"
     t.string "job"
     t.string "sub_job"
-    t.integer "my_guild_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "my_guilds", force: :cascade do |t|
-    t.string "g_name"
-    t.string "password_digest"
-    t.string "image"
+    t.integer "guild_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

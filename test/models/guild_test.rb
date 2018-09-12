@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MyGuildsControllerTest < ActionDispatch::IntegrationTest
+class GuildTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

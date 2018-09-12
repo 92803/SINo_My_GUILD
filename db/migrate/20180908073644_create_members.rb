@@ -5,7 +5,7 @@ class CreateMembers < ActiveRecord::Migration[5.1]
       t.integer :role
       t.string :job
       t.string :sub_job
-      t.integer :my_guild_id
+      t.integer :guild_id
 
       t.timestamps
     end
