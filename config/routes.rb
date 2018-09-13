@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  root 'sessions#index'
-  resources :sessions
-  resources :guilds
+  devise_for :guilds
   resources :members
 end
